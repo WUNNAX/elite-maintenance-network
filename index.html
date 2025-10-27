@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Marketing Solutions - Complete Maintenance Services</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--light);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 140px 2rem 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #c0392b;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+
+        /* Services Overview */
+        .services-overview {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-category {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .service-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-category ul {
+            list-style: none;
+        }
+
+        .service-category li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Companies Grid */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .company-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .company-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-type {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .company-content {
+            padding: 1.5rem;
+        }
+
+        .services-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .services-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list li:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .contact-info {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .services-overview {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                Elite Marketing Solutions
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#companies">Our Companies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elite Maintenance Solutions Network</h1>
+            <p>25 specialized companies providing comprehensive commercial and residential maintenance services under one trusted brand</p>
+            <a href="#companies" class="cta-button">Explore Our Companies</a>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services">
+        <div class="container">
+            <h2>Complete Maintenance Services</h2>
+            <div class="services-overview">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Our Service Categories</h3>
+                <div class="services-grid">
+                    <div class="service-category">
+                        <h3>🏗️ Structural & Construction</h3>
+                        <ul>
+                            <li>General Contracting</li>
+                            <li>Roofing Services</li>
+                            <li>Concrete & Masonry</li>
+                            <li>Structural Repairs</li>
+                        </ul>
+                    </div>
+                    <div class="service-category">
+                        <h3>⚡ Mechanical & Electrical</h3>
+                        <ul>
+                            <li>HVAC Systems</li>
+                            <li>Electrical Services</li>
+                            <li>Plumbing Solutions</li>
+                            <li>Elevator Maintenance</li>
+                        </ul>
+                    </div>
+                    <div class="service-category">
+                        <h3>🎨 Interior & Finishing</h3>
+                        <ul>
+                            <li>Painting Services</li>
+                            <li>Flooring Installation</li>
+                            <li>Drywall & Insulation</li>
+                            <li>Cabinetry & Millwork</li>
+                        </ul>
+                    </div>
+                    <div class="service-category">
+                        <h3>🌿 Exterior & Environmental</h3>
+                        <ul>
+                            <li>Landscaping</li>
+                            <li>Paving & Asphalt</li>
+                            <li>Environmental Services</li>
+                            <li>Pest Control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Directory -->
+    <section id="companies" style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Our Elite Companies</h2>
+            <div class="companies-grid">
+                <!-- Company 1 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Plumbing Solutions</h3>
+                        <div class="company-type">Residential & Commercial</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Complete plumbing services for all property types with 24/7 emergency response.</p>
+                        <ul class="services-list">
+                            <li>Emergency leak repair</li>
+                            <li>Pipe installation & replacement</li>
+                            <li>Water heater services</li>
+                            <li>Drain cleaning</li>
+                            <li>Commercial plumbing systems</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> plumbing@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 2 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Electrical Solutions</h3>
+                        <div class="company-type">Licensed & Certified</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Full-spectrum electrical services from minor repairs to major installations.</p>
+                        <ul class="services-list">
+                            <li>Electrical panel upgrades</li>
+                            <li>Lighting installation</li>
+                            <li>Generator installation</li>
+                            <li>Commercial wiring</li>
+                            <li>Safety inspections</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> electrical@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 3 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite HVAC Solutions</h3>
+                        <div class="company-type">Climate Control Specialists</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Heating, ventilation, and air conditioning solutions for optimal comfort.</p>
+                        <ul class="services-list">
+                            <li>AC installation & repair</li>
+                            <li>Heating system services</li>
+                            <li>Ventilation systems</li>
+                            <li>Commercial HVAC</li>
+                            <li>Preventive maintenance</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> hvac@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 4 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Roofing Solutions</h3>
+                        <div class="company-type">Protection Above All</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Comprehensive roofing services for residential and commercial properties.</p>
+                        <ul class="services-list">
+                            <li>Roof installation</li>
+                            <li>Leak repair</li>
+                            <li>Roof inspections</li>
+                            <li>Emergency repairs</li>
+                            <li>Maintenance programs</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> roofing@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 5 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Painting Solutions</h3>
+                        <div class="company-type">Interior & Exterior</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Professional painting services that transform spaces with quality finishes.</p>
+                        <ul class="services-list">
+                            <li>Interior painting</li>
+                            <li>Exterior painting</li>
+                            <li>Commercial painting</li>
+                            <li>Surface preparation</li>
+                            <li>Specialty finishes</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> painting@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 6 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Landscaping Solutions</h3>
+                        <div class="company-type">Outdoor Excellence</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Complete landscaping and grounds maintenance services.</p>
+                        <ul class="services-list">
+                            <li>Landscape design</li>
+                            <li>Lawn maintenance</li>
+                            <li>Irrigation systems</li>
+                            <li>Tree services</li>
+                            <li>Commercial grounds care</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> landscaping@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 7 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Concrete Solutions</h3>
+                        <div class="company-type">Solid Foundations</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Expert concrete and masonry services for durable structures.</p>
+                        <ul class="services-list">
+                            <li>Concrete pouring</li>
+                            <li>Foundation work</li>
+                            <li>Concrete repair</li>
+                            <li>Stamped concrete</li>
+                            <li>Commercial concrete</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> concrete@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 8 -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Flooring Solutions</h3>
+                        <div class="company-type">Underfoot Excellence</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Complete flooring installation, repair, and maintenance services.</p>
+                        <ul class="services-list">
+                            <li>Hardwood flooring</li>
+                            <li>Tile installation</li>
+                            <li>Carpet services</li>
+                            <li>Floor repair</li>
+      y                      <li>Commercial flooring</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> flooring@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with remaining 17 companies in similar structure -->
+                <!-- Company 9: Elite Pest Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Pest Solutions</h3>
+                        <div class="company-type">Pest Elimination</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Comprehensive pest control services for residential and commercial properties.</p>
+                        <ul class="services-list">
+                            <li>Insect control</li>
+                            <li>Rodent elimination</li>
+                            <li>Termite treatment</li>
+                            <li>Preventive programs</li>
+                            <li>Commercial pest management</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> pest@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 10: Elite Security Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Security Solutions</h3>
+                        <div class="company-type">Safety First</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Advanced security systems and monitoring services.</p>
+                        <ul class="services-list">
+                            <li>Security system installation</li>
+                            <li>Camera systems</li>
+                            <li>Access control</li>
+                            <li>Alarm monitoring</li>
+                            <li>Commercial security</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> security@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 11: Elite Cleaning Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Cleaning Solutions</h3>
+                        <div class="company-type">Spotless Environments</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Professional cleaning services for all property types.</p>
+                        <ul class="services-list">
+                            <li>Commercial cleaning</li>
+                            <li>Residential cleaning</li>
+                            <li>Post-construction cleanup</li>
+                            <li>Specialty cleaning</li>
+                            <li>Maintenance cleaning</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> cleaning@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 12: Elite Glass Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Glass Solutions</h3>
+                        <div class="company-type">Crystal Clear</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Professional glass installation and repair services.</p>
+                        <ul class="services-list">
+                            <li>Window replacement</li>
+                            <li>Glass repair</li>
+                            <li>Mirror installation</li>
+                            <li>Commercial glazing</li>
+                            <li>Emergency board-up</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> glass@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 13: Elite Masonry Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Masonry Solutions</h3>
+                        <div class="company-type">Stone & Brick Experts</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Expert masonry and stonework services.</p>
+                        <ul class="services-list">
+                            <li>Brick work</li>
+                            <li>Stone installation</li>
+                            <li>Chimney repair</li>
+                            <li>Masonry restoration</li>
+                            <li>Commercial masonry</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> masonry@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 14: Elite Paving Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Paving Solutions</h3>
+                        <div class="company-type">Smooth Surfaces</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Professional paving and asphalt services.</p>
+                        <ul class="services-list">
+                            <li>Asphalt paving</li>
+                            <li>Park lot maintenance</li>
+                            <li>Seal coating</li>
+                            <li>Paving repair</li>
+                            <li>Commercial paving</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> paving@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company 15: Elite Fencing Solutions -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>Elite Fencing Solutions</h3>
+                        <div class="company-type">Secure Boundaries</div>
+                    </div>
+                    <div class="company-content">
+                        <p>Professional fencing installation and repair.</p>
+                        <ul class="services-list">
+                            <li>Fence installation</li>
+                            <li>Fence repair</li>
+                            <li>Gate systems</li>
+                            <li>Commercial fencing</li>
+                            <li>Security fencing</li>
+                        </ul>
+                        <div class="contact-info">
+                            <strong>Contact:</strong> fencing@elite-solutions.com
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional companies would continue here... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Elite Marketing Solutions</h2>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    As the central hub for all Elite maintenance companies, we coordinate all your service needs.
+                </p>
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Central Contact Information</h3>
+                    <p><strong>📧 Email:</strong> info@elite-solutions.com</p>
+                    <p><strong>📞 Phone:</strong> 1-800-ELITE-NOW</p>
+                    <p><strong>🏢 Address:</strong> 123 Maintenance Plaza, Service City, SC 12345</p>
+                    <p><strong>🕒 Hours:</strong> 24/7 Emergency Services Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Elite Marketing Solutions. All rights reserved.</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Your trusted partner for comprehensive maintenance services</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple form handling could be added here
+    </script>
+</body>
+</html>
